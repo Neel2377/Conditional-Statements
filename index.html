@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SIP Calculator</title>
+  <link rel="icon"
+    href="https://images.yourstory.com/cs/images/companies/Groww-1580275290459.png?fm=auto&ar=1%3A1&mode=fill&fill=solid&fill-color=fff&format=auto&w=384&q=75"
+    type="icon">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <nav class="navbar navbar-expand-lg bg-white border-bottom py-2">
+    <div class="container">
+      <!-- Logo -->
+      <a class="navbar-brand d-flex align-items-center fw-bold" href="#">
+        <img
+          src="//assets-netstorage.groww.in/web-assets/billion_groww_desktop/prod/_next/static/media/groww_logo.961dcfc1.webp"
+          alt="Groww Logo" height="30px" class="me-2">
+      </a>
+
+      <!-- Toggle for mobile -->
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#growwNavbar"
+        aria-controls="growwNavbar" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <!-- Links + Search + Button -->
+      <div class="collapse navbar-collapse" id="growwNavbar">
+        <!-- Left Nav Links -->
+        <ul class="navbar-nav ms-3 mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link text-muted fw-semibold" href="#">Stocks</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-muted fw-semibold" href="#">F&O</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-muted fw-semibold" href="#">Mutual Funds</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-muted fw-semibold" href="#">More</a>
+          </li>
+        </ul>
+
+        <!-- Search -->
+        <form class="d-flex ms-auto me-3 position-relative" role="search">
+          <span class="position-absolute top-50 start-0 translate-middle-y ps-2 text-muted">
+            <i class="bi bi-search"></i>
+          </span>
+          <input class="form-control ps-5 rounded-pill" type="search" placeholder="Search Groww..." aria-label="Search"
+            style="width: 260px;">
+          <span class="position-absolute top-50 end-0 translate-middle-y pe-2 text-muted small d-none d-md-inline">Ctrl
+            K</span>
+        </form>
+
+        <!-- Login Button -->
+        <button class="btn btn-success rounded-pill fw-semibold px-4" type="button">Login/Sign up</button>
+      </div>
+    </div>
+  </nav>
+
+
+  <div class="container py-4">
+    <!-- Header -->
+    <div class="row g-4">
+      <!-- Left Panel -->
+      <div class="col-lg-8 border border-2">
+        <div class="p-4 rounded glass-card shadow-sm">
+          <!-- Tabs -->
+          <ul class="nav nav-pills mb-4 justify-content-start">
+            <li class="nav-item">
+              <a class="nav-link active bg-success-subtle text-success fw-medium" href="#">SIP</a>
+            </li>
+            <li class="nav-item ms-2">
+              <a class="nav-link btn-glass text-success fw-medium" href="#">Lumpsum</a>
+            </li>
+          </ul>
+
+          <!-- Form and Chart in Flex -->
+          <div class="d-flex flex-wrap gap-4 align-items-start mb-4">
+            <!-- Form Controls -->
+            <div class="flex-grow-1" style="min-width: 300px;">
+              <form>
+                <div class="mb-5">
+                  <div class="d-flex justify-content-between align-items-center">
+                    <label class="form-label fw-medium text-black">Monthly Investment (₹)</label>
+                    <input type="number" id="invest" value="25000"
+                      class="form-control form-control-sm glass-input text-end text-success fw-bold mival"
+                      oninput="handlechangerev()" />
+                  </div>
+                  <input type="range" id="invest_range" class="accent-green w-100" min="0" max="1000000" step="100"
+                    value="25000" oninput="handlechange()" />
+                </div>
+
+                <div class="mb-5">
+                  <div class="d-flex justify-content-between align-items-center">
+                    <label class="form-label fw-medium text-black">Expected Return Rate (%)</label>
+                    <input type="number" id="rate" value="12"
+                      class="form-control form-control-sm glass-input text-end text-success fw-bold erval"
+                      oninput="handlechangerev()" />
+                  </div>
+                  <input type="range" id="rate_range" class="accent-green w-100" min="1" max="30" step="0.1" value="12"
+                    oninput="handlechange()" />
+                </div>
+
+                <div class="mb-5">
+                  <div class="d-flex justify-content-between align-items-center">
+                    <label class="form-label fw-medium text-black">Time Period (Years)</label>
+                    <input type="number" id="time" value="10"
+                      class="form-control form-control-sm glass-input text-end text-success fw-bold tpval"
+                      oninput="handlechangerev()" />
+                  </div>
+                  <input type="range" id="time_range" class="accent-green w-100" min="1" max="40" step="1" value="10"
+                    oninput="handlechange()" />
+                </div>
+                <div class="d-flex justify-content-between gap-1 flex-wrap mb-4">
+                  <div class="result-card flex-fill text-center border border-1 border-success w-25">
+                    <small class="text-muted fw-bold text-black">Invested Amount</small>
+                    <h6 id="invest_amount" class="fw-bold text-success my-1">₹30,00,000</h6>
+                  </div>
+                  <div class="result-card flex-fill text-center border border-1 border-success w-25">
+                    <small class="text-muted fw-bold text-black">Est. Returns</small>
+                    <h6 id="est_return" class="fw-bold text-success my-1">₹26,00,897</h6>
+                  </div>
+                  <div class="result-card flex-fill text-center border border-1 border-success w-25">
+                    <small class="text-muted fw-bold text-black">Total Value</small>
+                    <h6 id="total_val" class="fw-bold text-success my-1">₹56,00,897</h6>
+                  </div>
+                </div>
+
+              </form>
+            </div>
+
+            <!-- Chart -->
+            <div style="width: 250px;">
+              <canvas id="sipChart"></canvas>
+              <div class="inbtn">
+                <button class="btn btn-success px-4 py-2 rounded-pill fw-bold my-3 text-center">INVEST NOW</button>
+              </div>
+            </div>
+          </div>
+
+
+          <!-- Result Summary -->
+          <div class="row text-center mb-4">
+            <div class="col-md-3">
+            </div>
+            <div class="col-md-3">
+
+            </div>
+            <div class="col-md-3">
+
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right Panel -->
+      <div class="col-lg-4">
+        <div class="glass-card p-4 text-center mb-4">
+          <img src="https://cms-resources.groww.in/uploads/Start_Investing_2_2286453507.png" alt="rupee" height="100px"
+            width="150px" class="mb-2" />
+          <h5 class="fw-bold text-dark">Build Wealth, One SIP at a Time</h5>
+          <p class="text-muted small">Harness the power of compounding with disciplined investing.</p>
+          <button class="btn btn-success w-100 rounded-pill fw-bold">Start SIP with ₹500</button>
+        </div>
+
+        <!-- Calculators List -->
+        <div class="glass-card p-2">
+          <h6 class="fw-bold mb-3">Popular Calculators</h6>
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item bg-transparent">Lumpsum Calculator</li>
+            <li class="list-group-item bg-transparent">SWP Calculator</li>
+            <li class="list-group-item bg-transparent">Mutual Fund Returns</li>
+            <li class="list-group-item bg-transparent">Sukanya Yojana Calculator</li>
+            <li class="list-group-item bg-transparent">Income Tax Calculator</li>
+            <li class="list-group-item bg-transparent">PPF Calculator</li>
+            <li class="list-group-item bg-transparent">EPF Calculator</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="script.js"></script>
+</body>
+
+</html>

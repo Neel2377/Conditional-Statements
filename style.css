@@ -1,0 +1,93 @@
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: white;
+  color: #333;
+}
+
+.navbar .nav-link {
+  font-size: 15px;
+  margin-right: 12px;
+}
+
+.navbar .form-control {
+  background-color: #f9f9f9;
+  border: 1px solid #e3e3e3;
+}
+
+
+.glass-card {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(12px);
+  border-radius: 16px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+}
+
+label {
+  font-weight: 600;
+  color: #333;
+}
+
+.form-control {
+  width: 130px;
+}
+
+input[type="range"].accent-green {
+  accent-color: #00b88a;
+}
+
+.glass-input {
+  background-color: rgba(0, 255, 171, 0.1);
+  border: 1px solid #c1f5e6;
+  font-weight: bold;
+  color: #088f65;
+}
+
+.btn-glass {
+  background-color: #e1fdf4;
+  border-radius: 20px;
+  font-weight: 600;
+}
+
+.result-card {
+  background-color: #ecfff7;
+  border-radius: 12px;
+  padding: 1rem;
+  box-shadow: inset 0 0 8px #d3f3e4;
+}
+
+#sipChart {
+  width: 100% !important;
+  height: auto !important;
+}
+
+.btn-success {
+  background-color: #00b88a !important;
+  border: 2px solid;
+}
+
+.btn-success:hover {
+  background-color: #009e77 !important;
+}
+
+.inbtn {
+  margin-left: 55px !important;
+  margin-top: 70px;
+}
+
+.mival {
+  width: 90px;
+  border: 2px solid;
+  border-radius: 10px;
+}
+
+.erval {
+  width: 90px;
+  border: 2px solid;
+  border-radius: 10px;
+}
+
+.tpval {
+  width: 90px;
+  border: 2px solid;
+  border-radius: 10px;
+}
